@@ -1,0 +1,59 @@
+<!-- Nav tabs -->
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Contact Us</h1>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="tab" href="#DIT">Staff</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane container active" id="DIT"></div>
+  <br>
+  <h2>RentAClothes Staff</h2>
+  <br>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Bryan</td>
+        <td>Report Analyst</td>
+        <td><a href="mailto:bryanwonghg2004@gmail.com">bryanwonghg2004@gmail.com</a></td>
+      </tr>
+      <tr>
+        <td>Bhava</td>
+        <td>Customer Support Specialist</td>
+        <td>
+          <a href="mailto:bhavasg19@gmail.com">bhavasg19@gmail.com</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Khairul</td>
+        <td>Financial Manager</td>
+        <td>
+          <a href="mailto:masamir06@gmail.com">masamir06@gmail.com</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Weekian</td>
+        <td>Account Manager</td>
+        <td>
+          <a href="mailto:weekian02@gmail.com">weekian02@gmail.com</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  <div class="tab-pane container fade" id="menu1">...</div>
+  <div class="tab-pane container fade" id="menu2">...</div>
+</div>
+{% endblock %}

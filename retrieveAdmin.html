@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Rent A Clothes - Retrieve Admin{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Retrieve Admin</h1>
+<div>
+  {% if count == 0 %}
+  <p>There are no admin.</p>
+  {% elif count == 1 %}
+  <p>There is 1 admin active.</p>
+  {% else %}
+  <p>There are {{ count }} admin.</p>
+  {% endif %}
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Remarks</th>
+        <th>Password</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for admin in admin_list %}
+        <tr>
+          <td>{{ admin.get_code() }}</td>
+          <td>{{ admin.get_gender() }}</td>
+          <td>{{ admin.get_email() }}</td>
+          <td>{{ admin.get_remarks() }}</td>
+          <td>{{ admin.get_password() }}</td>
+
+
+          <td><a href="/updateAdmin/{{admin.get_admin_id()}}" class="btn btn-warning">Update</a></td>
+          <td>
+            <form action="{{url_for('delete_admin',id=admin.get_admin_id())}}" method="POST">
+<!--              <input type="submit" value="Delete" class="btn btn-danger">-->
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{admin.get_code()}}">
+  Delete
+</button>
+<!-- The Modal -->
+<div class="modal" id="myModal_{{admin.get_code()}}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">DELETE?!?!</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete {{admin.get_code()}}?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
